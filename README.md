@@ -1,2 +1,2 @@
-# gcp-streaming-workshop
-Demo for processing streaming data pipeline using Cloud Pub/Sub, Cloud Dataflow, and BigQuery
+# GCP DE Workshops
+Demo for processing batch and streaming data pipeline on Google Cloud Platform.

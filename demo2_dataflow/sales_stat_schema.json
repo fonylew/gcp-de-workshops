@@ -1,0 +1,22 @@
+[
+    {
+        "name": "timestamp",
+        "type": "TIMESTAMP",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "branch",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "transactions",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "average_price",
+        "type": "FLOAT",
+        "mode": "REQUIRED"
+    }
+]
