@@ -7,8 +7,7 @@ import datetime, json, os, random, time
 # Set the `project` variable to a Google Cloud project ID.
 project = 'acoustic-racer-358817'
 
-BRANCH = ['LIM', 'BOG', 'SFO', 'LAX', 'PEK', 'ATL', 'CDG', 'AMS',
-        'HKG', 'ICN', 'FRA', 'MAD', 'SEA', 'LAS', 'SIN', 'BKK', 'DFW',
+BRANCH = ['SFO', 'LAX', 'PEK', 'ATL', 'CDG', 'AMS', 'HKG', 'ICN', 'MAD', 'SEA', 'LAS', 'SIN', 'BKK', 'NRT',
         'DXB', 'LHR', 'DEL', 'BCN', 'SZX', 'KUL', 'JFK']
 TRANSACTION = ['A00001', 'B00001', 'C00001', 'D00001', 'E00001', 'F00001', 'G00001',
         'H00001', 'I00001', 'F00001', 'G00001', 'H00001', 'I00001', 'J00001', 'K00001', 'L00001',

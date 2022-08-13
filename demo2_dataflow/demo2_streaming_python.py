@@ -28,12 +28,6 @@ SCHEMA = ",".join(
     ]
 )
 
-
-def parse_json_message(message: str) -> Dict[str, Any]:
-    """Parse the input json message."""
-    return json.loads(message)
-
-
 def run(
     input_subscription: str,
     output_table: str,
@@ -46,18 +40,12 @@ def run(
     with beam.Pipeline(options=options) as pipeline:
         messages = (
             pipeline
-            | "Read from Pub/Sub"
-            >> beam.io.ReadFromPubSub(
-                subscription=input_subscription
-            ).with_output_types(bytes)
-            | "UTF-8 bytes to string" >> beam.Map(lambda msg: msg.decode("utf-8"))
-            | "Parse JSON messages" >> beam.Map(parse_json_message)
-            | "Fixed-size windows"
-            >> beam.WindowInto(window.FixedWindows(window_interval_sec, 0))
+            | "Read from Pub/Sub" >> beam.io.ReadFromPubSub(subscription=input_subscription)
+            | "Parse JSON messages" >> beam.Map(json.loads)
+            | "Fixed-size windows" >> beam.WindowInto(window.FixedWindows(window_interval_sec, 0))
             | "Add branch_txn keys" >> beam.WithKeys(lambda msg: msg["branch_txn"])
             | "Group by branch_txn" >> beam.GroupByKey()
-            | "Get statistics"
-            >> beam.MapTuple(
+            | "Get statistics" >> beam.MapTuple(
                 lambda branch_txn, messages: {
                     "timestamp": max(msg["tr_time_str"] for msg in messages),
                     "branch": branch_txn,
