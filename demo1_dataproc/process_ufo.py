@@ -4,7 +4,7 @@ from pyspark.sql.functions import split
 def read_data(spark):
     # อ่านไฟล์จาก GCS
     # TODO: เปลี่ยนเป็นชื่อ GCS ของคุณ
-    ufo_df = spark.read.option('header', True).option("multiline", True).csv('gs://perth-test-storage/Workshop1_Data.csv')
+    ufo_df = spark.read.option('header', True).option("multiline", True).csv('gs://perth-raw-storage/Workshop1_Data.csv')
 
     # แบ่งคอลัมน์ 'Date / Time' ออกเป็นคอลัมน์ Date และ Time
     # Reference: https://spark.apache.org/docs/3.1.1/api/python/reference/api/pyspark.sql.functions.split.html
