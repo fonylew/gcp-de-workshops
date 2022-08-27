@@ -7,16 +7,16 @@ import os
 # ----------------------------
 #  User-configurable Constants
 
-PROJECT_ID = os.getenv('DLP_PROJECT_ID', '[PROJECT_ID_DLP_JOB & TOPIC]')
+PROJECT_ID = os.getenv('PROJECT_ID', '[PROJECT_ID_DLP_JOB & TOPIC]')
 
 """The bucket the to-be-scanned files are uploaded to."""
-STAGING_BUCKET = os.getenv('QUARANTINE_BUCKET', '[YOUR_QUARANTINE_BUCKET]')
+STAGING_BUCKET = os.getenv('RAW_BUCKET', '[YOUR_QUARANTINE_BUCKET]')
 
 """The bucket to move "sensitive" files to."""
-SENSITIVE_BUCKET = os.getenv('SENSITIVE_DATA_BUCKET', '[YOUR_SENSITIVE_DATA_BUCKET]')
+SENSITIVE_BUCKET = os.getenv('SENSITIVE_BUCKET', '[YOUR_SENSITIVE_DATA_BUCKET]')
 
 """The bucket to move "non sensitive" files to."""
-NONSENSITIVE_BUCKET = os.getenv('INSENSITIVE_DATA_BUCKET', '[YOUR_NON_SENSITIVE_DATA_BUCKET]')
+NONSENSITIVE_BUCKET = os.getenv('INSENSITIVE_BUCKET', '[YOUR_NON_SENSITIVE_DATA_BUCKET]')
 
 """ Pub/Sub topic to notify once the  DLP job completes."""
 PUB_SUB_TOPIC = os.getenv('PUB_SUB_TOPIC', '[PUB/SUB_TOPIC]')
@@ -32,7 +32,7 @@ MAX_FINDINGS = 0
 """For more info visit: https://cloud.google.com/dlp/docs/concepts-infotypes"""
 INFO_TYPES = os.getenv('INFO_TYPES', 'FIRST_NAME,PHONE_NUMBER,EMAIL_ADDRESS,US_SOCIAL_SECURITY_NUMBER').split(',')
 
-APP_LOG_NAME = os.getenv('LOG_NAME', 'DLP-classify-gcs-files')
+APP_LOG_NAME = os.getenv('APP_LOG_NAME', 'DLP-classify-gcs-files')
 
 # End of User-configurable Constants
 # ----------------------------------
