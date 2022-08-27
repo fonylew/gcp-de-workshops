@@ -1,10 +1,5 @@
-# Demo 3: Streaming pipeline with Cloud Dataflow
-
-Cloud DLP demo: https://cloud.google.com/dlp/demo/#!/
-Cloud DLP docs: https://cloud.google.com/dlp/docs/examples
-
-Google Code labs: https://codelabs.developers.google.com/codelabs/cloud-storage-dlp-functions#0
-Original GitHub repository: https://github.com/GoogleCloudPlatform/dlp-cloud-functions-tutorials/tree/master/gcs-dlp-classification-python
+# Demo 3: Event-based pipeline with Cloud Functions and Cloud DLP
+Create event-based pipeline with Cloud Functions with Object Notification to create Cloud DLP (Data Loss Prevention) job.
 
 ## Create 3 Cloud Storage buckets
 - Raw data
@@ -41,3 +36,8 @@ gcloud functions deploy resolve_DLP --runtime python37 \
 --trigger-topic classify-topic \
 --env-vars-file env.yaml
 ```
+### References
+- Cloud DLP demo: https://cloud.google.com/dlp/demo/#!/
+- Cloud DLP docs: https://cloud.google.com/dlp/docs/examples
+- Google Code labs: https://codelabs.developers.google.com/codelabs/cloud-storage-dlp-functions#0
+- Original GitHub repository: https://github.com/GoogleCloudPlatform/dlp-cloud-functions-tutorials/tree/master/gcs-dlp-classification-python
